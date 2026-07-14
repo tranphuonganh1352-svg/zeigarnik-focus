@@ -1,8 +1,9 @@
-export default function TodoItem({ 
-  task, 
-  onToggle, 
+export default function TodoItem({
+  task,
+  onToggle,
   onDelete,
-  onSelect
+  onSelect,
+  onProgress
 }) {
   return (
     <div
@@ -42,6 +43,22 @@ export default function TodoItem({
   <small>
     📅 {task.deadline || "Chưa có hạn"} | ⭐ {task.priority}
   </small>
+  <div style={{ marginTop: "10px" }}>
+  <input
+    type="range"
+    min="0"
+    max="100"
+    value={task.progress || 0}
+    onChange={(e) =>
+      onProgress(task.id, Number(e.target.value))
+    }
+    style={{ width: "180px" }}
+  />
+
+  <div>
+    {task.progress || 0}%
+  </div>
+</div>
 </div>
         </span>
       </div>
