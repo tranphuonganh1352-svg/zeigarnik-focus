@@ -70,13 +70,15 @@ setPriority("Trung bình");
   );
 };
 const updateProgress = (id, value) => {
-  setTasks(
-    tasks.map((task) =>
+  console.log("UPDATE", id, value);
+
+  setTasks((prev) =>
+    prev.map((task) =>
       task.id === id
         ? {
             ...task,
             progress: value,
-            completed: value === 100
+            completed: value === 100,
           }
         : task
     )
