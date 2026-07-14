@@ -69,7 +69,19 @@ setPriority("Trung bình");
     )
   );
 };
-
+const updateProgress = (id, value) => {
+  setTasks(
+    tasks.map((task) =>
+      task.id === id
+        ? {
+            ...task,
+            progress: value,
+            completed: value === 100
+          }
+        : task
+    )
+  );
+};
 useEffect(()=>{
 
 const today =
