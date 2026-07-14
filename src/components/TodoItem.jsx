@@ -81,7 +81,7 @@ export default function TodoItem({
 </div>
 </div>
 </div>
-        </span>
+        </div>
       </div>
 
       <div>
