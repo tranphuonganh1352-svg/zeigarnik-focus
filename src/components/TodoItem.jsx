@@ -1,3 +1,9 @@
+import {
+  CircularProgressbar,
+  buildStyles
+} from "react-circular-progressbar";
+
+import "react-circular-progressbar/dist/styles.css";
 export default function TodoItem({
   task,
   onToggle,
@@ -55,9 +61,24 @@ export default function TodoItem({
     style={{ width: "180px" }}
   />
 
-  <div>
-    {task.progress || 0}%
-  </div>
+  <div
+  style={{
+    width: "55px",
+    height: "55px",
+    marginTop: "10px"
+  }}
+>
+  <CircularProgressbar
+    value={task.progress || 0}
+    text={`${task.progress || 0}%`}
+    styles={buildStyles({
+      pathColor: "#2563eb",
+      textColor: "#111",
+      trailColor: "#ddd",
+      textSize: "28px"
+    })}
+  />
+</div>
 </div>
 </div>
         </span>
