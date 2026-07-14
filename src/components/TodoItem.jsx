@@ -30,12 +30,11 @@ export default function TodoItem({
           onChange={() => onToggle(task.id)}
         />
 
-        <span
-          style={{
-            marginLeft: "10px",
-            textDecoration: task.completed ? "line-through" : "none",
-          }}
-        >
+        <div
+  style={{
+    marginLeft: "10px",
+  }}
+>
          <div style={{ marginLeft: "10px" }}>
   <div
     style={{
@@ -51,15 +50,16 @@ export default function TodoItem({
   </small>
   <div style={{ marginTop: "10px" }}>
   <input
-    type="range"
-    min="0"
-    max="100"
-    value={task.progress || 0}
-    onChange={(e) =>
-      onProgress(task.id, Number(e.target.value))
-    }
-    style={{ width: "180px" }}
-  />
+  type="range"
+  min="0"
+  max="100"
+  value={task.progress || 0}
+  onChange={(e) => {
+    console.log("Slider:", e.target.value);
+    onProgress(task.id, Number(e.target.value));
+  }}
+  style={{ width: "180px" }}
+/>
 
   <div
   style={{

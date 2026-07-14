@@ -316,6 +316,7 @@ return score+point;
     onToggle={toggleTask}
     onDelete={deleteTask}
     onSelect={setSelectedTask}
+     onProgress={updateProgress}
 />
 ))
           )}
