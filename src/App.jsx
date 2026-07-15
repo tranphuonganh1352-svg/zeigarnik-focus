@@ -272,62 +272,62 @@ if (!started) {
     flexWrap: "wrap",
     gap: "10px",
     marginTop: "20px",
+    alignItems: "center",
   }}
 >
+  <input
+    type="text"
+    placeholder="Nhập công việc..."
+    value={newTask}
+    onChange={(e) => setNewTask(e.target.value)}
+    style={{
+      flex: "1 1 250px",
+      padding: "10px",
+      borderRadius: "8px",
+      border: "1px solid #ccc",
+      boxSizing: "border-box",
+    }}
+  />
 
+  <input
+    type="date"
+    value={deadline}
+    onChange={(e) => setDeadline(e.target.value)}
+    style={{
+      padding: "10px",
+      borderRadius: "8px",
+      border: "1px solid #ccc",
+    }}
+  />
+
+  <select
+    value={priority}
+    onChange={(e) => setPriority(e.target.value)}
+    style={{
+      padding: "10px",
+      borderRadius: "8px",
+      border: "1px solid #ccc",
+    }}
+  >
+    <option value="Cao">🔴 Cao</option>
+    <option value="Trung bình">🟡 Trung bình</option>
+    <option value="Thấp">🟢 Thấp</option>
+  </select>
+
+  <button
+    onClick={addTask}
+    style={{
+      padding: "10px 20px",
+      background: "#2563eb",
+      color: "white",
+      border: "none",
+      borderRadius: "8px",
+      cursor: "pointer",
+    }}
+  >
+    + Thêm
+  </button>
 </div>
-        <input
-          type="text"
-          placeholder="Nhập công việc..."
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
-          style={{
-            padding: "10px",
-            width: "70%",
-            marginRight: "10px",
-            borderRadius: "8px",
-            border: "1px solid #ccc",
-          }}
-        />
-<input
-  type="date"
-  value={deadline}
-  onChange={(e) => setDeadline(e.target.value)}
-  style={{
-    padding: "10px",
-    marginLeft: "10px",
-    borderRadius: "8px",
-    border: "1px solid #ccc",
-  }}
-/>
-
-      <select
-  value={priority}
-  onChange={(e) => setPriority(e.target.value)}
-  style={{
-    padding: "10px",
-    borderRadius: "8px",
-    border: "1px solid #ccc",
-  }}
->
-  <option value="Cao">🔴 Cao</option>
-  <option value="Trung bình">🟡 Trung bình</option>
-  <option value="Thấp">🟢 Thấp</option>
-</select>
-
-<button
-  onClick={addTask}
-  style={{
-    padding: "10px 20px",
-    background: "#2563eb",
-    color: "white",
-    border: "none",
-    borderRadius: "8px",
-    cursor: "pointer",
-  }}
->
-  + Thêm
-</button>
       
     
 

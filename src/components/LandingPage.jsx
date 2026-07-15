@@ -21,14 +21,16 @@ export default function LandingPage({ onStart }) {
         }}
       >
         <h1
-          style={{
-            fontSize: "42px",
-            color: "#2563eb",
-            marginBottom: "10px",
-          }}
-        >
-          Zeigarnik Focus
-        </h1>
+  style={{
+    fontSize: "clamp(32px, 8vw, 42px)",
+    color: "#2563eb",
+    marginBottom: "10px",
+    textAlign: "center",
+    lineHeight: "1.1",
+  }}
+>
+  Zeigarnik Focus
+</h1>
 
         <p
           style={{
