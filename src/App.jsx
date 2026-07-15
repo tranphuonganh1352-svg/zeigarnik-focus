@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import {Header} from "./components/Header";
 import Statistics from "./components/Statistics";
 import ZeigarnikChart from "./components/ZeigarnikChart";
+import LandingPage from "./components/LandingPage";
 
 function App() {
   const [tasks, setTasks] = useState(() => {
@@ -22,6 +23,7 @@ return saved ? JSON.parse(saved): [];
 const [deadline, setDeadline] = useState("");
 const [priority, setPriority] = useState("Trung bình");
 const [selectedTask, setSelectedTask] = useState(null);
+const [started, setStarted] = useState(false);
   const addTask = () => {
     if (newTask.trim() === "") return;
 
@@ -160,7 +162,10 @@ const zeigarnikScore = Math.min(
 tasks.reduce((score,task)=>{
 
 if(task.completed)
-return score;
+if (!started) {
+  return <LandingPage onStart={() => setStarted(true)} />;
+}
+  return score;
 
 
 let point=20;
