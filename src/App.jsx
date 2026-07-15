@@ -27,18 +27,16 @@ const [started, setStarted] = useState(false);
   const addTask = () => {
     if (newTask.trim() === "") return;
 
-   const task = {
+  const task = {
   id: Date.now(),
   title: newTask,
-  completed:false,
+  completed: false,
   deadline,
   priority,
-
   createdAt: new Date().toISOString(),
-
-  focusTime:0,
-
-  reopenCount:0
+  focusTime: 0,
+  progress: 0,
+  reopenCount: 0
 };
 setDeadline("");
 setPriority("Trung bình");
@@ -146,6 +144,12 @@ JSON.stringify(history)
 );
 
 },[history]);
+useEffect(() => {
+  localStorage.setItem(
+    "tasks",
+    JSON.stringify(tasks)
+  );
+}, [tasks]);
 
 console.log("HISTORY APP:", history);
 
@@ -162,9 +166,6 @@ const zeigarnikScore = Math.min(
 tasks.reduce((score,task)=>{
 
 if(task.completed)
-if (!started) {
-  return <LandingPage onStart={() => setStarted(true)} />;
-}
   return score;
 
 
@@ -192,6 +193,9 @@ return score+point;
 
 },0)
 );
+if (!started) {
+  return <LandingPage onStart={() => setStarted(true)} />;
+}
   return (
     <div
       style={{
