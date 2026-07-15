@@ -26,7 +26,7 @@ const [selectedTask, setSelectedTask] = useState(null);
 const [started, setStarted] = useState(false);
   const addTask = () => {
     if (newTask.trim() === "") return;
-
+const [darkMode, setDarkMode] = useState(false);
   const task = {
   id: Date.now(),
   title: newTask,
@@ -197,10 +197,11 @@ if (!started) {
   return <LandingPage onStart={() => setStarted(true)} />;
 }
   return (
-   <div
+  <div
   style={{
     minHeight: "100vh",
-    background: "#f5f7fb",
+    background: darkMode ? "#111827" : "#f5f7fb",
+    color: darkMode ? "white" : "black",
     padding: "20px",
     maxWidth: "1200px",
     margin: "0 auto",
@@ -208,6 +209,21 @@ if (!started) {
   }}
 >
       <Header />
+     
+      <button
+  onClick={() => setDarkMode(!darkMode)}
+  style={{
+    padding: "10px 20px",
+    background: darkMode ? "#facc15" : "#1f2937",
+    color: darkMode ? "#111" : "white",
+    border: "none",
+    borderRadius: "8px",
+    cursor: "pointer",
+    marginBottom: "20px",
+  }}
+>
+  {darkMode ? "☀️ Chế độ sáng" : "🌙 Chế độ tối"}
+</button>
       <div
   style={{
     background: "#ffffff",
