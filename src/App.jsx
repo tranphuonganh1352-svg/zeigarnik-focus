@@ -197,14 +197,16 @@ if (!started) {
   return <LandingPage onStart={() => setStarted(true)} />;
 }
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "#f5f7fb",
-        padding: "40px",
-        fontFamily: "Arial",
-      }}
-    >
+   <div
+  style={{
+    minHeight: "100vh",
+    background: "#f5f7fb",
+    padding: "20px",
+    maxWidth: "1200px",
+    margin: "0 auto",
+    fontFamily: "Arial",
+  }}
+>
       <Header />
       <div
   style={{
@@ -264,6 +266,16 @@ if (!started) {
       >
         <h2>📋 Công việc hôm nay</h2>
 
+<div
+  style={{
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "10px",
+    marginTop: "20px",
+  }}
+>
+
+</div>
         <input
           type="text"
           placeholder="Nhập công việc..."
@@ -289,22 +301,11 @@ if (!started) {
   }}
 />
 
-        <button
-          onClick={addTask}
-          style={{
-            padding: "10px 20px",
-            background: "#2563eb",
-            color: "white",
-            border: "none",
-            borderRadius: "8px",
-            cursor: "pointer",
-          }}
-        ><select
+      <select
   value={priority}
   onChange={(e) => setPriority(e.target.value)}
   style={{
     padding: "10px",
-    marginLeft: "10px",
     borderRadius: "8px",
     border: "1px solid #ccc",
   }}
@@ -313,8 +314,22 @@ if (!started) {
   <option value="Trung bình">🟡 Trung bình</option>
   <option value="Thấp">🟢 Thấp</option>
 </select>
-          + Thêm
-        </button>
+
+<button
+  onClick={addTask}
+  style={{
+    padding: "10px 20px",
+    background: "#2563eb",
+    color: "white",
+    border: "none",
+    borderRadius: "8px",
+    cursor: "pointer",
+  }}
+>
+  + Thêm
+</button>
+      
+    
 
         <div style={{ marginTop: "25px" }}>
           {tasks.length === 0 ? (
